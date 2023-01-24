@@ -25,15 +25,15 @@ public class Owner {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    @JsonIgnore
-    private List<Car> cars;
-
     public Owner (String firstName, String lastName) {
 
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonIgnore
+    private List<Car> cars;
+
 
     @Override
     public boolean equals (Object o) {

@@ -2,8 +2,10 @@ package com.jk;
 
 import com.jk.Model.Car;
 import com.jk.Model.Owner;
+import com.jk.Model.User;
 import com.jk.Repository.CarRepository;
 import com.jk.Repository.OwnerRepository;
+import com.jk.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +20,10 @@ public class CarManagementSystem {
 
     @Autowired
     private OwnerRepository ownerRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
     public static void main (String[] args) {
 
         SpringApplication.run(CarManagementSystem .class, args);
@@ -39,6 +45,11 @@ public class CarManagementSystem {
             Car secondCar = new Car("Bugatti", "Black", "2019", "AEF-1980", 270000L, secondOwner);
             carRepository.save(secondCar);
 
+            User firstUser = new User("user", "0713", "USER");
+            userRepository.save(firstUser);
+
+            User secondUser = new User("admin", "0713", "ADMIN");
+            userRepository.save(secondUser);
         };
     }
 
